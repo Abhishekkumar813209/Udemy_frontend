@@ -17,4 +17,4 @@ reducer:{
 
 export default store;
 
-export const server = "https://backend-tdl9.onrender.com"
+export const server = "https://backend-tdl9.onrender.com/api/v1"

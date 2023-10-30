@@ -27,11 +27,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import toast,{Toaster} from "react-hot-toast"
 import { loadUser } from './redux/actions/user.js';
 import {ProtectedRoute} from "protected-route-react"
-import Loader from './components/layout/loader/Loader.jsx';
 
 function App() {
 
-  const {isAuthenticated,user,message,error,loading} = useSelector(state=>state.user)
+  const {isAuthenticated,user,message,error} = useSelector(state=>state.user)
   const dispatch = useDispatch();
   useEffect(()=>{
       if(error){
@@ -52,10 +51,7 @@ function App() {
    
   return (
    <Router>
-    {loading?(
-      <Loader />
-    ):(
-      <>
+    
       <Header isAuthenticated={isAuthenticated} user={user} />
     
       <Routes>
@@ -114,8 +110,7 @@ function App() {
        </Routes>
       <Footer />
       <Toaster />
-      </>
-    )}
+     
     
    </Router>
 
